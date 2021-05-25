@@ -7,4 +7,8 @@ public class Driver extends User {
         super(id, name, email, orders);
         this.balance = 0;
     }
+
+    public double getBalance() {
+        return balance;
+    }
 }

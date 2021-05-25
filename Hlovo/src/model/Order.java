@@ -21,8 +21,8 @@ public class Order {
         return user;
     }
 
-    public Driver getDriverId() {
-        return driver;
+    public int getDriverId() {
+        return driver.getId();
     }
 
     public String getStatus() {

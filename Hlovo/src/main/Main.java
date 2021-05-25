@@ -1,7 +1,8 @@
 package main;
 
 import model.*;
-import Service.*;
+import service.*;
+import repository.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +11,27 @@ public class Main {
     public static void main (String[] args)
     {
         //testLocalService();
-        testOrderService();
+        //testOrderService();
+        altTest();
+    }
+    public static void altTest()
+    {
+        String connstr = "oracle.jdbc.driver.OracleDriver\r\n" +
+                "jdbc:oracle:thin:@10.100.10.56:1521:bind1\r\n" +
+                "bind_demo\r\n" +
+                "oracle";
+        LocalRepository LR = new LocalRepository();
+        Local l = new Local(1005, "flaggg", "Bargar Kong", "fast-food", null);
+        LR.addLocal(l, connstr);
+
+        Local l2 = LR.readLocal(l.getId(), connstr);
+        System.out.println(l2.getAddress());
+        l.setName("Nume nou");
+        System.out.println(l2.getName());
+        LR.updateLocal(l, connstr);
+        LR.addLocal(l2, connstr);
+        LR.deleteLocal(l, connstr);
+
     }
     public static void testOrderService()
     {
@@ -26,7 +47,7 @@ public class Main {
         items[2] = it3;
 
 
-        Driver dr1 = new Driver(1, "Gion", null, null);
+        Driver dr1 = new Driver(1, "Gion", "gio@n.cff", null);
         User us1 = new User(1, "Big Smoke", "fi@fai.fo", null);
 
         Order or1 = new Order(1, us1, dr1, "Pending", items, "dest", 0.1, 5);
@@ -44,6 +65,7 @@ public class Main {
 
         OrderService os = new OrderService(drivers, users, orders, locals);
         os.printOrder(or1);
+        os.printDriver(dr1);
     }
 
     public static void testLocalService()

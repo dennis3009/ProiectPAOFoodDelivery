@@ -7,6 +7,12 @@ public class Local {
     private int id;
     private String address;
 
+
+    private String name;
+    private String type;
+    private List<MenuItem> menuItems;
+
+
     public String getAddress() {
         return address;
     }
@@ -18,12 +24,6 @@ public class Local {
     public String getType() {
         return type;
     }
-
-    private String name;
-    private String type;
-    private List<MenuItem> menuItems;
-
-
     public List<MenuItem> getMenuItems() {
         return menuItems;
     }
@@ -66,5 +66,13 @@ public class Local {
                 this.menuItems.remove(mI);
             }
         }
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
