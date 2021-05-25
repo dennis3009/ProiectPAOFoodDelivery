@@ -43,7 +43,7 @@ public class DiscountRepository {
 
     public Discount readDiscount(Discount discount, String connstr)
     {
-        command = "select * from discounts where id = " + discount.getId() + ";";
+        command = "select * from discounts where id = " + discount.getId();
         ResultSet rs = sHelp.getResultSetFromQuery(connstr, command);
         try{
             while (rs.next())

@@ -40,7 +40,7 @@ public class UserRepository {
 
     public User readUser(User user, String connstr)
     {
-        command = "select * from users where id = "+ user.getId() + ";";
+        command = "select * from users where id = "+ user.getId();
         ResultSet rs = sHelp.getResultSetFromQuery(connstr, command);
         try{
             while(rs.next())

@@ -41,7 +41,7 @@ public class DriverRepository {
 
     public Driver readDriver(Driver driver, String connstr)
     {
-        command = "select * from driver where id = " + driver.getId() + ";";
+        command = "select * from driver where id = " + driver.getId();
         ResultSet rs = sHelp.getResultSetFromQuery(connstr, command);
         try {
             while (rs.next())

@@ -19,7 +19,7 @@ public class Main {
         String connstr = "oracle.jdbc.driver.OracleDriver\r\n" +
                 "jdbc:oracle:thin:@10.100.10.56:1521:bind1\r\n" +
                 "bind_demo\r\n" +
-                "oracle";
+                "p$$wrd";
         LocalRepository LR = new LocalRepository();
         Local l = new Local(1005, "flaggg", "Bargar Kong", "fast-food", null);
         LR.addLocal(l, connstr);
